@@ -24,7 +24,7 @@ public class AiReplyService {
     private final LlmClient llmClient;
     private final int MAX_MESSAGE_HISTORY_SENT = 10;
 
-    public AiReplyService(@Autowired @Qualifier("googleGeminiClient") LlmClient llmClient) {
+    public AiReplyService(@Autowired @Qualifier("openAiClient") LlmClient llmClient) {
         this.llmClient = llmClient;
     }
 
