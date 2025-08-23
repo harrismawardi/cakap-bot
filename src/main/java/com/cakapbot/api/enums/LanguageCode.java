@@ -1,4 +1,4 @@
-package com.cakapbot.api.model.enums;
+package com.cakapbot.api.enums;
 
 import java.util.Locale;
 

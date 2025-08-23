@@ -1,7 +1,6 @@
-package com.cakapbot.api.model;
+package com.cakapbot.api.model.chat;
 
 public record LessonData(
-    long id,
     String lessonSlug,
     String languageCode,
     String startMessage,

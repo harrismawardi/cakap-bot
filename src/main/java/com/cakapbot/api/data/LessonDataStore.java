@@ -1,7 +1,7 @@
 package com.cakapbot.api.data;
 
-import com.cakapbot.api.model.LessonData;
-import com.cakapbot.api.model.enums.LanguageCode;
+import com.cakapbot.api.model.chat.LessonData;
+import com.cakapbot.api.enums.LanguageCode;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +20,7 @@ public class LessonDataStore {
 
     @PostConstruct
     private void populateData() {
-        lessonDataStore.put(1L, new LessonData(1, "greetings", "ms-MY", "Apa Kabar? Selemat pagi", "How are you? Good Morning", SYSTEM_PROMPT));
+        lessonDataStore.put(1L, new LessonData("greetings", "ms-MY", "Apa Kabar? Selemat pagi", "How are you? Good Morning", SYSTEM_PROMPT));
     }
 
 

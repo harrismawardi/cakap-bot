@@ -1,10 +1,10 @@
 package com.cakapbot.api.interfaces;
 
-import com.cakapbot.api.model.ChatMessage;
-import com.cakapbot.api.model.enums.LanguageCode;
+import com.cakapbot.api.controller.ChatResponse;
+import com.cakapbot.api.model.chat.UserTurn;
+import com.cakapbot.api.enums.LanguageCode;
 
 public interface Chat {
-    ChatMessage startChat(String lessonSlug, LanguageCode languageCode);
-    ChatMessage reply(ChatMessage receivedMessage);
-    ChatMessage endChat();
+    ChatResponse startChat(String lessonSlug, LanguageCode languageCode);
+    ChatResponse reply(String sessionId, UserTurn message);
 }
