@@ -16,13 +16,9 @@ import java.util.List;
 public class AiReplyService {
 
     private static final String GENERAL_SYSTEM_PROMPT = """
-            You are an AI powered chatbot for learning.
-            Generate a reply to the chat to help the user to learn.
-            The reply must match the provided json schema.
-            For each reply should be the english translation and hints (in English)
-            that can be used to aid the user in responding.
-            This chat is for a specific topic. Adhere to the lesson guide when generating the response.
-            Keep messages short - like texting.
+            You are replying to a chat. If I send a message in english, ask me to repeat in the language you understand.
+             If there are small typos in my message -ignore them.
+            The reply must be in Json to match the provided example. Keep messages short - like texting.
             """;
 
     private final LlmClient llmClient;
@@ -49,7 +45,7 @@ public class AiReplyService {
             throw new RuntimeException("LLM Prompt Error - Couldn't deserialize chat history");
         }
 
-        String example = "{ \"message\": \"<reply>\", \"translation\": \"{<english-translation>\", \"hints\": [\"this will help\"]}";
+        String example = "{ \"message\": \"<reply>\", \"translation\": \"<english-translation>\", \"hints\": [\"this will help\"]}";
         String template = "Aim: [%s], message history: [%s], lesson guide: [%s], example Reply: %s.";
         String systemPrompt = String.format(template, GENERAL_SYSTEM_PROMPT, messages, lessonPrompt, example);
 

@@ -15,12 +15,12 @@ public class LessonDataStore {
 
     private final Map<Long, LessonData> lessonDataStore = new HashMap<>();
     private final String SYSTEM_PROMPT = """
-        You are an ai assisted language learning chat-bot. You should give a reply in bahasa malay for the given response. keep answers short.
+        You speak Bahasa Malayu. Do not use religious phrases - stick to secular. For this conversation stay focused on this topic:
     """;
 
     @PostConstruct
     private void populateData() {
-        lessonDataStore.put(1L, new LessonData("greetings", "ms-MY", "Apa Kabar? Selemat pagi", "How are you? Good Morning", SYSTEM_PROMPT));
+        lessonDataStore.put(1L, new LessonData("greetings", "ms-MY", "Apa Kabar? Selemat pagi", "How are you? Good Morning", SYSTEM_PROMPT + "greetings"));
     }
 
 
