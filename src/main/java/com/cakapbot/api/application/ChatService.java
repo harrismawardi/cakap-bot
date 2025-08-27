@@ -20,6 +20,7 @@ import static com.cakapbot.api.domain.chat.ChatRole.USER;
 public class ChatService implements Chat {
 
     private final AiReplyService botReplyService;
+    private final PromptSpecComposer promptSpecComposer;
     private final InMemoryLessonDataStore lessonDataStore;
     private final ChatStore chatDataStore;
 
@@ -27,7 +28,7 @@ public class ChatService implements Chat {
         Lesson lesson = lessonDataStore.find(lessonSlug, languageCode);
 
         ChatMessage startMessage = new ChatMessage(BOT, lesson.startMessage(), Instant.now().getEpochSecond());
-        ChatHistory newChat = ChatHistory.create(startMessage, lesson.systemPrompt());
+        ChatHistory newChat = ChatHistory.create(startMessage, promptSpecComposer.composeSystemPrompt(lesson));
         chatDataStore.save(newChat);
 
         return ChatResponse.builder()

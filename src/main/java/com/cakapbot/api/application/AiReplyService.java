@@ -18,7 +18,7 @@ public class AiReplyService {
     }
 
     public BotTurn generateReply(UserTurn userTurn, ChatHistory chatHistory) {
-        PromptSpec spec = promptSpecComposer.compose(userTurn.message(), chatHistory.getMessages(), chatHistory.getSystemPrompt());
+        PromptSpec spec = promptSpecComposer.composeFullPromptSpec(userTurn.message(), chatHistory.getMessages(), chatHistory.getSystemPrompt());
         return llmClient.complete(spec);
     }
 }
