@@ -1,5 +1,6 @@
 package com.cakapbot.api.domain.lesson;
 
+import com.cakapbot.api.exception.BadRequestException;
 import java.util.Locale;
 
 public enum LanguageCode {
@@ -14,7 +15,7 @@ public enum LanguageCode {
             String cleaned = code.replace("-", "_").toUpperCase(Locale.ROOT);
             return LanguageCode.valueOf(cleaned);
         } catch(IllegalArgumentException e) {
-            throw new RuntimeException("Unsupported language"); //todo handle
+            throw new BadRequestException("Unsupported language");
         }
     }
 
