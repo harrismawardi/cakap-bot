@@ -28,7 +28,7 @@ dependencies {
 	//Spring
 	implementation 'org.springframework.boot:spring-boot-starter-restclient'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
 	//LLM SDKs
 	implementation 'com.google.genai:google-genai:1.14.0'
