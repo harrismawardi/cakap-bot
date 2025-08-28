@@ -19,8 +19,7 @@ This repo contains the **backend API** built with **Spring Boot** following a **
 - In-memory session store (Redis planned).
 - Pluggable LLM clients (Gemini and OpenAI clients implemented).
 
-
-![Diagram V1 Design.jpg](assets/Diagram V1 Design.jpg)
+![Diagram V1 Design.jpg](assets/v1-design-diagram.jpg)
 ---
 
 ## 🚀 Getting Started
